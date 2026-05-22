@@ -9,16 +9,20 @@
 }
 
 body {
-  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family:
+    "Segoe UI",
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
   background: transparent;
-  min-width: 300px;
+  min-width: 400px;
 }
 
 /* Container */
 .popup-container {
   background: linear-gradient(145deg, #1f2937, #111827);
   color: #e5e7eb;
-  border-radius: 12px;
+  border-radius: 0px;
   overflow: hidden;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
 }
@@ -152,7 +156,7 @@ body {
 }
 
 .slider::before {
-  content: '';
+  content: "";
   position: absolute;
   height: 18px;
   width: 18px;

@@ -11,18 +11,29 @@
  *   - "You" / Message Yourself chat (message-yourself-row)
  *   - Unsaved contacts, phone number spans, etc.
  */
-.privacy-blur-names [data-testid="cell-frame-container"] [data-testid="cell-frame-title"] span,
-.privacy-blur-names [data-testid="message-yourself-row"] [data-testid="cell-frame-title"] span {
+.privacy-blur-names
+  [data-testid="cell-frame-container"]
+  [data-testid="cell-frame-title"]
+  span,
+.privacy-blur-names
+  [data-testid="message-yourself-row"]
+  [data-testid="cell-frame-title"]
+  span {
   filter: blur(5px) !important;
   transition: filter 0.25s ease;
 }
 
 /* Hover to reveal names */
-.privacy-blur-names [data-testid="cell-frame-container"]:hover [data-testid="cell-frame-title"] span,
-.privacy-blur-names [data-testid="message-yourself-row"]:hover [data-testid="cell-frame-title"] span {
+.privacy-blur-names
+  [data-testid="cell-frame-container"]:hover
+  [data-testid="cell-frame-title"]
+  span,
+.privacy-blur-names
+  [data-testid="message-yourself-row"]:hover
+  [data-testid="cell-frame-title"]
+  span {
   filter: blur(0px) !important;
 }
-
 
 /* ---- Blur last message preview in chat list ---- */
 
@@ -31,18 +42,76 @@
  *   - cell-frame-secondary (used by both regular & "You" chats)
  *   - cell-frame-subtitle (alternate testid used in some versions)
  */
-.privacy-blur-preview [data-testid="cell-frame-container"] [data-testid="cell-frame-secondary"] span,
-.privacy-blur-preview [data-testid="cell-frame-container"] [data-testid="cell-frame-subtitle"] span,
-.privacy-blur-preview [data-testid="message-yourself-row"] [data-testid="cell-frame-secondary"] span,
-.privacy-blur-preview [data-testid="message-yourself-row"] [data-testid="cell-frame-subtitle"] span {
+.privacy-blur-preview
+  [data-testid="cell-frame-container"]
+  [data-testid="cell-frame-secondary"]
+  span,
+.privacy-blur-preview
+  [data-testid="cell-frame-container"]
+  [data-testid="cell-frame-subtitle"]
+  span,
+.privacy-blur-preview
+  [data-testid="message-yourself-row"]
+  [data-testid="cell-frame-secondary"]
+  span,
+.privacy-blur-preview
+  [data-testid="message-yourself-row"]
+  [data-testid="cell-frame-subtitle"]
+  span {
   filter: blur(5px) !important;
   transition: filter 0.25s ease;
 }
 
 /* Hover to reveal preview */
-.privacy-blur-preview [data-testid="cell-frame-container"]:hover [data-testid="cell-frame-secondary"] span,
-.privacy-blur-preview [data-testid="cell-frame-container"]:hover [data-testid="cell-frame-subtitle"] span,
-.privacy-blur-preview [data-testid="message-yourself-row"]:hover [data-testid="cell-frame-secondary"] span,
-.privacy-blur-preview [data-testid="message-yourself-row"]:hover [data-testid="cell-frame-subtitle"] span {
+.privacy-blur-preview
+  [data-testid="cell-frame-container"]:hover
+  [data-testid="cell-frame-secondary"]
+  span,
+.privacy-blur-preview
+  [data-testid="cell-frame-container"]:hover
+  [data-testid="cell-frame-subtitle"]
+  span,
+.privacy-blur-preview
+  [data-testid="message-yourself-row"]:hover
+  [data-testid="cell-frame-secondary"]
+  span,
+.privacy-blur-preview
+  [data-testid="message-yourself-row"]:hover
+  [data-testid="cell-frame-subtitle"]
+  span {
+  filter: blur(0px) !important;
+}
+
+/* ---- Blur messages in chat room ---- */
+
+/* Target ALL spans inside message container except author and timestamps (msg-meta) */
+.privacy-blur-messages-in-chat-room
+  [data-testid="msg-container"]
+  span:not([data-testid="author"]):not(:has([data-testid="author"])):not(
+    [data-testid="msg-meta"]
+  ):not([data-testid="msg-meta"] *) {
+  filter: blur(5px) !important;
+  transition: filter 0.25s ease;
+}
+.privacy-blur-messages-in-chat-room
+  [data-testid="msg-container"]
+  div
+  [data-testid="media-url-provider"] {
+  filter: blur(5px) !important;
+  transition: filter 0.25s ease;
+}
+
+/* Hover to reveal message in chat room */
+.privacy-blur-messages-in-chat-room
+  [data-testid="msg-container"]:hover
+  span:not([data-testid="author"]):not(:has([data-testid="author"])):not(
+    [data-testid="msg-meta"]
+  ):not([data-testid="msg-meta"] *) {
+  filter: blur(0px) !important;
+}
+.privacy-blur-messages-in-chat-room
+  [data-testid="msg-container"]:hover
+  div
+  [data-testid="media-url-provider"] {
   filter: blur(0px) !important;
 }

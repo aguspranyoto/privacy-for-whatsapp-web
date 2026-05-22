@@ -8,7 +8,8 @@
 const DEFAULT_SETTINGS = {
   enabled: true,
   blurNames: true,
-  blurPreview: true
+  blurPreview: true,
+  blurMessagesInChatRoom: false,
 };
 
 let currentSettings = { ...DEFAULT_SETTINGS };
@@ -21,22 +22,33 @@ function applyBlur() {
   const body = document.body;
 
   if (!currentSettings.enabled) {
-    body.classList.remove('privacy-blur-names', 'privacy-blur-preview');
+    body.classList.remove(
+      "privacy-blur-names",
+      "privacy-blur-preview",
+      "privacy-blur-messages-in-chat-room",
+    );
     return;
   }
 
   // Toggle blur for names
   if (currentSettings.blurNames) {
-    body.classList.add('privacy-blur-names');
+    body.classList.add("privacy-blur-names");
   } else {
-    body.classList.remove('privacy-blur-names');
+    body.classList.remove("privacy-blur-names");
   }
 
   // Toggle blur for message preview
   if (currentSettings.blurPreview) {
-    body.classList.add('privacy-blur-preview');
+    body.classList.add("privacy-blur-preview");
   } else {
-    body.classList.remove('privacy-blur-preview');
+    body.classList.remove("privacy-blur-preview");
+  }
+
+  // Toggle blur for messages in chat room
+  if (currentSettings.blurMessagesInChatRoom) {
+    body.classList.add("privacy-blur-messages-in-chat-room");
+  } else {
+    body.classList.remove("privacy-blur-messages-in-chat-room");
   }
 }
 
@@ -54,7 +66,7 @@ function loadSettings() {
  * Listen for settings changes from the popup
  */
 chrome.storage.onChanged.addListener((changes, area) => {
-  if (area === 'local') {
+  if (area === "local") {
     for (const [key, { newValue }] of Object.entries(changes)) {
       currentSettings[key] = newValue;
     }
@@ -74,10 +86,10 @@ function observeChatList() {
   });
 
   // Observe the entire app for structural changes (WhatsApp is a SPA)
-  const appRoot = document.getElementById('app') || document.body;
+  const appRoot = document.getElementById("app") || document.body;
   observer.observe(appRoot, {
     childList: true,
-    subtree: true
+    subtree: true,
   });
 }
 
@@ -85,14 +97,14 @@ function observeChatList() {
  * Initialize the extension
  */
 function init() {
-  console.log('[Privacy for WhatsApp] Extension loaded');
+  console.log("[Privacy for WhatsApp] Extension loaded");
   loadSettings();
   observeChatList();
 }
 
 // Wait for WhatsApp to load, then initialize
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', init);
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", init);
 } else {
   init();
 }
