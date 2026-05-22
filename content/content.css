@@ -84,12 +84,14 @@
 
 /* ---- Blur messages in chat room ---- */
 
-/* Target ALL spans inside message container except author and timestamps (msg-meta) */
+/* Target ALL spans inside message container except author, timestamps, and context menu */
 .privacy-blur-messages-in-chat-room
   [data-testid="msg-container"]
   span:not([data-testid="author"]):not(:has([data-testid="author"])):not(
     [data-testid="msg-meta"]
-  ):not([data-testid="msg-meta"] *) {
+  ):not([data-testid="msg-meta"] *):not([data-testid="down-context"]):not(
+    :has([data-testid="down-context"])
+  ) {
   filter: blur(5px) !important;
   transition: filter 0.25s ease;
 }
@@ -106,12 +108,14 @@
   [data-testid="msg-container"]:hover
   span:not([data-testid="author"]):not(:has([data-testid="author"])):not(
     [data-testid="msg-meta"]
-  ):not([data-testid="msg-meta"] *) {
-  filter: blur(0px) !important;
+  ):not([data-testid="msg-meta"] *):not([data-testid="down-context"]):not(
+    :has([data-testid="down-context"])
+  ) {
+  filter: none !important;
 }
 .privacy-blur-messages-in-chat-room
   [data-testid="msg-container"]:hover
   div
   [data-testid="media-url-provider"] {
-  filter: blur(0px) !important;
+  filter: none !important;
 }

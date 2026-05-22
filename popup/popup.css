@@ -196,3 +196,7 @@ input:focus-visible + .slider {
   color: #6b7280;
   letter-spacing: 0.2px;
 }
+
+.developer-name {
+  color: #10b981;
+}
