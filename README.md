@@ -1,5 +1,7 @@
 # Privacy for WhatsApp Web 🍉
 
+<img width="400" height="331" alt="image" src="https://github.com/user-attachments/assets/80e730df-d456-465c-942f-2ba8ebb8c844" />
+
 A lightweight Chrome Extension designed to enhance your privacy while using WhatsApp Web in public spaces or around prying eyes. It automatically blurs sensitive information, which can be revealed simply by hovering over it.
 
 ## Features
