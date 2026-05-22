@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy for WhatsApp</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <div class="popup-container">
+      <!-- Header -->
+      <div class="popup-header">
+        <div class="header-icon">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zm0 12.5c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
+        <div class="header-text">
+          <h1>Privacy for WhatsApp Web</h1>
+          <p class="subtitle">Hover over blurred content to reveal</p>
+        </div>
+      </div>
+
+      <!-- Divider -->
+      <div class="divider"></div>
+
+      <!-- Settings -->
+      <div class="settings-list">
+        <!-- Master Toggle -->
+        <div class="setting-item master-toggle" id="setting-enabled">
+          <div class="setting-info">
+            <span class="setting-icon">⚡</span>
+            <span class="setting-label">On / Off</span>
+          </div>
+          <label class="toggle" for="toggle-enabled">
+            <input type="checkbox" id="toggle-enabled" checked />
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div class="divider thin"></div>
+
+        <!-- Blur Names -->
+        <div class="setting-item" id="setting-blur-names">
+          <div class="setting-info">
+            <span class="setting-icon">👤</span>
+            <span class="setting-label">Blur user/group names</span>
+          </div>
+          <label class="toggle" for="toggle-blur-names">
+            <input type="checkbox" id="toggle-blur-names" checked />
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <!-- Blur Preview -->
+        <div class="setting-item" id="setting-blur-preview">
+          <div class="setting-info">
+            <span class="setting-icon">💬</span>
+            <span class="setting-label">Blur last message preview</span>
+          </div>
+          <label class="toggle" for="toggle-blur-preview">
+            <input type="checkbox" id="toggle-blur-preview" checked />
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="popup-footer">
+        <p>
+          Developed by
+          <a href="https://agusp.com" target="_blank" rel="noopener noreferrer"
+            >Agus Pranyoto</a
+          >
+        </p>
+      </div>
+    </div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

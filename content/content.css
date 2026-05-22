@@ -1,0 +1,48 @@
+/* ==============================
+   Privacy for WhatsApp Web - Content Styles
+   Blur effects for names and message previews
+   ============================== */
+
+/* ---- Blur user/group names in chat list sidebar ---- */
+
+/*
+ * Target ALL spans inside cell-frame-title to cover:
+ *   - Regular chats (cell-frame-container)
+ *   - "You" / Message Yourself chat (message-yourself-row)
+ *   - Unsaved contacts, phone number spans, etc.
+ */
+.privacy-blur-names [data-testid="cell-frame-container"] [data-testid="cell-frame-title"] span,
+.privacy-blur-names [data-testid="message-yourself-row"] [data-testid="cell-frame-title"] span {
+  filter: blur(5px) !important;
+  transition: filter 0.25s ease;
+}
+
+/* Hover to reveal names */
+.privacy-blur-names [data-testid="cell-frame-container"]:hover [data-testid="cell-frame-title"] span,
+.privacy-blur-names [data-testid="message-yourself-row"]:hover [data-testid="cell-frame-title"] span {
+  filter: blur(0px) !important;
+}
+
+
+/* ---- Blur last message preview in chat list ---- */
+
+/*
+ * Target ALL spans inside message preview areas:
+ *   - cell-frame-secondary (used by both regular & "You" chats)
+ *   - cell-frame-subtitle (alternate testid used in some versions)
+ */
+.privacy-blur-preview [data-testid="cell-frame-container"] [data-testid="cell-frame-secondary"] span,
+.privacy-blur-preview [data-testid="cell-frame-container"] [data-testid="cell-frame-subtitle"] span,
+.privacy-blur-preview [data-testid="message-yourself-row"] [data-testid="cell-frame-secondary"] span,
+.privacy-blur-preview [data-testid="message-yourself-row"] [data-testid="cell-frame-subtitle"] span {
+  filter: blur(5px) !important;
+  transition: filter 0.25s ease;
+}
+
+/* Hover to reveal preview */
+.privacy-blur-preview [data-testid="cell-frame-container"]:hover [data-testid="cell-frame-secondary"] span,
+.privacy-blur-preview [data-testid="cell-frame-container"]:hover [data-testid="cell-frame-subtitle"] span,
+.privacy-blur-preview [data-testid="message-yourself-row"]:hover [data-testid="cell-frame-secondary"] span,
+.privacy-blur-preview [data-testid="message-yourself-row"]:hover [data-testid="cell-frame-subtitle"] span {
+  filter: blur(0px) !important;
+}
